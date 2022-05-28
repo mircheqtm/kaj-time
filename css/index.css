@@ -205,7 +205,6 @@ footer section {
     }
     100% {
         transform: scale(0) rotate(360deg);
-        -webkit-transform: scale(0) rotate(360deg)
     }
 }
 
