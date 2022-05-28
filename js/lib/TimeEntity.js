@@ -82,7 +82,11 @@ export class TimeEntity extends ObjectElement {
                     return db.get("projects", this.projectId);
                 })
                 .then(project => {
-                    template.children[1].children[2].children[1].innerText = project.name;
+                    if(project != null){
+                        template.children[1].children[2].children[1].innerText = project.name;
+                    }else {
+                        template.children[1].children[2].children[1].innerText = " Deleted project"
+                    }
                 })
         }
         return template;
