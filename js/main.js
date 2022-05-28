@@ -182,7 +182,7 @@ function displayAddTimerModal() {
     let projectSelect = document.getElementById("project-select");
     dbWrapper.getAllKeys("projects")
         .then(keys => {
-                if (keys.length !== projectSelect.children.length) {
+                if (keys.length !== projectSelect.children.length + 1) {
                     dbWrapper.getAll("projects")
                         .then(projectsDb => projectsDb.forEach(projectDb => {
                             const project = Project.fromIndexedDbProject(projectDb);
