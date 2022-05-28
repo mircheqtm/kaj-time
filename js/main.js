@@ -111,15 +111,15 @@ function startTimer() {
         inputDescriptionElem.reportValidity();
         return;
     }
-    const projectValuje = document.getElementById("project-select").value;
-    if (projectValuje === "default") {
+    const projectValue = document.getElementById("project-select").value;
+    if (projectValue === "") {
         return;
     }
     hideAddTimeModal()
 
     const audio = new Audio('audio/timer-start.mp3');
     audio.play();
-    let projectId = parseInt(projectValuje);
+    let projectId = parseInt(projectValue);
     let description = inputDescriptionElem.value;
     let newTimeEntity = new TimeEntity(new Date(), description, projectId);
     dbWrapper.add("times", newTimeEntity)
