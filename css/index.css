@@ -115,13 +115,15 @@ body {
 }
 
 #projects-panel {
+    position: absolute;
     display: block;
     width: 30vw;
     z-index: 1;
     transform: translateY(-200%);
     background-color: #606060;
-    box-shadow: 0px 9px 40px 3px rgba(0, 0, 0, 0.404);
+    box-shadow: 0 9px 40px 3px rgba(0, 0, 0, 0.404);
     border-radius: 10px;
+    right: 5vw;
 }
 
 .project-item {
@@ -225,6 +227,7 @@ footer section {
         margin-right: 0 !important;
         margin-left: 0 !important;
         background-color: #606060f7;
+        right: auto;
     }
 
 
