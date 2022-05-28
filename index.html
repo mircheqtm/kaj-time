@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon"/>
+    <title>Timer KAJ</title>
+</head>
+
+<body>
+<div class="page">
+
+    <header>
+        <nav class="p-2 w-100 d d-flex py-auto flex-row justify-content-between">
+            <div class="left-side">
+                <img id="logo" class="ms-5" src="svg/logo.svg" width="100" alt="Timer-logo"/>
+                <button id="displayAddTimerModal" type="button" class="btn btn-success rounded-pill ms-5">
+                <span class="">
+                    Start timer
+                </span>
+                    <span class="material-icons-outlined align-middle">
+                        add
+                </span>
+                </button>
+            </div>
+
+            <div class="right-side text-light d-flex my-auto">
+                <div id="showOrHideProjectsPanel" class="clickable mx-3">
+                <span class="material-icons-outlined align-middle">
+                    work_outline
+                </span>
+                    <span class="">
+                        Projects
+                </span>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div id="projects-panel" class="p-3 mt-4 mx-3 projects-menu float-end">
+        <!-- HERE PASTE PROJECT FROM TEMPLATE -->
+        <button type="button" class="float-end btn me-2" id="add-project-btn">
+                <span id="createDefaultProject" class="material-icons-outlined">
+                    add
+                </span>
+        </button>
+
+    </div>
+    <div id="active-block" class="active-block m-5 text-light ">
+        <h1 class="mb-2">Active timers</h1>
+        <div id="active-timers" class="active-timers ">
+
+
+        </div>
+    </div>
+    <div id="finished-block" class="active-block m-5 text-light ">
+        <h1 class="mb-2">Finished timers</h1>
+        <div id="finished-timers" class="active-timers ">
+
+
+        </div>
+    </div>
+
+</div>
+<footer>
+    <section class="mx-auto align-middle">
+        <audio controls>
+            <source src="audio/intro.mp3" type="audio/mpeg">
+        </audio>
+        <h3>
+            KAJ 2022 - project KAJ Time
+        </h3>
+        <span>
+                Author - Miron Grishchenko
+        </span>
+    </section>
+</footer>
+<div class="my-modal" id="start-timer-modal">
+    <div class="content-modal ">
+        <span id="hideAddTimeModal" class="close-modal">&times;</span>
+        <h2 class="">Start timer</h2>
+        <form class="main-content d-flex h-100 flex-column gap-5">
+            <div class="mt-2">
+                <label for="project-select" class="ms-2 mb-2">Select project</label>
+                <select required id="project-select" class="form-select form-select-sm"
+                        aria-label=".form-select-sm example">
+
+                </select>
+                <label class="ms-2 mt-2" for="timer-description">Description</label>
+                <input pattern="^[A-Za-z0-9\s]{1,50}" placeholder="Shortly describe what will you do" required
+                       maxlength="50"
+                       title="Description should contain 50 letters a-z A-Z"
+                       id="timer-description" class="form-control" type="text">
+            </div>
+            <button id="startTimerBtn" type="button" class="btn btn-success rounded-pill w-100">
+                <span class="align-middle">Start</span>
+                <span class="material-icons-outlined align-middle">
+                        play_arrow
+                </span>
+            </button>
+        </form>
+    </div>
+</div>
+<script src="bootstrap/js/bootstrap.bundle.min.js "></script>
+<script type="module" src="/js/lib/IndexedDbWrap.js "></script>
+<script type="module" src="/js/lib/ObjectElement.js "></script>
+<script type="module" src="/js/lib/Project.js "></script>
+<script type="module" src="/js/lib/TimeEntity.js "></script>
+<script type="module" src="/js/main.js "></script>
+</body>
+</html>
