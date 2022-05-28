@@ -180,18 +180,16 @@ async function initIndexedDb() {
 function displayAddTimerModal() {
     let modal = document.getElementById("start-timer-modal");
     let projectSelect = document.getElementById("project-select");
-    dbWrapper.getAllKeys("projects")
-        .then(keys => {
-                if (keys.length !== projectSelect.children.length + 1) {
-                    dbWrapper.getAll("projects")
-                        .then(projectsDb => projectsDb.forEach(projectDb => {
-                            const project = Project.fromIndexedDbProject(projectDb);
-                            const option = project.generateProjectSelect();
-                            projectSelect.appendChild(option);
-                        }));
-                }
-            }
-        )
+    while (projectSelect.childNodes.length > 1) {
+        projectSelect.removeChild(projectSelect.lastChild);
+    }
+    dbWrapper.getAll("projects")
+        .then(projectsDb => projectsDb
+            .forEach(projectDb => {
+                const project = Project.fromIndexedDbProject(projectDb);
+                const option = project.generateProjectSelect();
+                projectSelect.appendChild(option);
+            }));
     modal.style.backgroundColor = "rgba(0, 0, 0, 0.4)"
     modal.style.animation = "none"
     modal.style.display = "block";
