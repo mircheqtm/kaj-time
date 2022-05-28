@@ -65,7 +65,7 @@ function startNotificationChecker(timer) {
 
     setInterval(() => {
         const distance = new Date().getTime() - timer.start.getTime();
-        const curHour = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) + 2;
+        const curHour = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         if (curHour !== timer.lastSeenHour) {
             const greeting = new Notification('Your timer running ' + curHour + ' hours already', {
                 body: 'CLICK ON ME PLEASE'
