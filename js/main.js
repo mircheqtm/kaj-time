@@ -16,6 +16,7 @@ async function init() {
     initAllTimers();
     initEventListeners();
     initNotificationCheckers();
+    await Notification.requestPermission();
 }
 
 function initEventListeners() {

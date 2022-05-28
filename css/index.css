@@ -118,8 +118,7 @@ body {
     display: block;
     width: 30vw;
     z-index: 1;
-    /* -200 was before */
-    transform: translateY(0);
+    transform: translateY(-200%);
     background-color: #606060;
     box-shadow: 0px 9px 40px 3px rgba(0, 0, 0, 0.404);
     border-radius: 10px;
